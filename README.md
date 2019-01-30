@@ -2,7 +2,7 @@ This is from MLR in Q&A or this [Udemy course](https://www.udemy.com/react-the-c
 
 [Purpose of Fragment/hash and Query/search](https://www.udemy.com/react-the-complete-guide-incl-redux/learn/v4/questions/3469586)
 
-index.js has the refactored code from MLR again.
+```index.js``` has the refactored code from MLR again.
 
 My last comment:
 
@@ -12,7 +12,7 @@ Thanks again for the hi-tech code. I really enjoyed it digging into it.
 
 Actually I realized a misconception I had above.
 
-MySearches doesn't log out what the props.location.search does, but "...utility methods to work with the query string of the URL (i.e. the string from props.location.search )". So mySearches is an object that has a dozen of utility methods, which you can use to manipulate the URL you assign to it. I find it strange though that it doesn't log the URL.
+```MySearches``` doesn't log out what the ```props.location.search``` does, but "...utility methods to work with the query string of the URL (i.e. the string from ```props.location.search``` )". So mySearches is an object that has a dozen of utility methods, which you can use to manipulate the URL you assign to it. I find it strange though that it doesn't log the URL.
 ```js
 console.log("myProps.location.search: ", myProps.location.search);
 // 'myProps.location.search'
@@ -25,7 +25,7 @@ console.log("myProps.location.search: ", myProps.location.search);
 
 console.log("mySearches: ", mySearches); // logs utility methods
 ```
-Anyway, one of its methods is also the forEach, which you use to get the key/value pair each time a link is clicked.
+Anyway, one of its methods is also the ```forEach```, which you use to get the key/value pair each time a link is clicked.
 ```js
 mySearches.forEach(currentParam => {
 mySearchValueArray.push(currentParam);
@@ -33,8 +33,9 @@ mySearchValueArray.push(currentParam);
 console.log("mySearchValueArray: ", mySearchValueArray); // ["pink-search", "#fac"]
 
 return [myHash, mySearchValueArray];
-This time of course myExternalProcessor returns a multidimensional array with the [0] hash and the [1] key/value pair of search. Further in MyComponent you print the hash and the key and you use the value for the backgoundColor.
-
+```
+This time of course ```myExternalProcessor``` returns a multidimensional array with the ```[0] hash``` and the ```[1] key/value``` pair of ```search```. Further in ```MyComponent``` you print the ```hash``` and the ```key``` and you use the ```value``` for the ```backgoundColor```.
+```js
 const MyComponent = props => {
 const myStyle = {
 padding: "6px 0",
@@ -53,10 +54,9 @@ return (
 );
 };
 ```
-As you said you use one component this time MyComponent which you "render" three times. When a color link is clicked, then one of these components gets renderd with dynamically passed in values with the use of myExternalProcessor.
+As you said you use one component this time ```MyComponent``` which you "render" three times. When a color link is clicked, then one of these components gets renderd with dynamically passed in values with the use of ```myExternalProcessor```.
 
-myMapLinkMethod takes care of the color links. It maps an array with writtenColor and bgdColor key/value pairs, which you use dynamically for pathname, hash and search, by passing the according value when a link is clicked.
-
+```myMapLinkMethod``` takes care of the color links. It maps an array with ```writtenColor``` and ```bgdColor key/value``` pairs, which you use dynamically for ```pathname```, ```hash``` and ```search```, by passing the according value when a link is clicked.
 That was my favorite part of the code!
 ```js
 myMapLinkMethod = () =>
@@ -77,7 +77,7 @@ search:
 </li>
 ));
 ```
-Thanks also for the use of encodeURIComponent(myCurrentItem.bgdColor)
+Thanks also for the use of ```encodeURIComponent(myCurrentItem.bgdColor)```.
 
 It's the first time I encounter it and I realized that is absolutely useful, since:
 
@@ -89,11 +89,11 @@ URL encoding replaces unsafe ASCII characters with a "%" followed by two hexadec
 
 URLs cannot contain spaces. URL encoding normally replaces a space with a plus (+) sign or with %20. "
 
-source
+[source](https://www.w3schools.com/tags/ref_urlencode.asp)
 
 This version is of course as you said more condensed.
 
-Furthermore, passing values dynamically makes it also scalable, since you don't have to hardcode every new color link and component you want to add. You just add a new object in myColorsArray and one more <Route...> and that's it.
+Furthermore, passing values dynamically makes it also scalable, since you don't have to hardcode every new color link and component you want to add. You just add a new object in ```myColorsArray``` and one more ```<Route...>``` and that's it.
 
 Thanks once more for your help.
 
